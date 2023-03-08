@@ -1,10 +1,12 @@
 package data;
 
 import models.Usuario;
+import models.Hobbies;
 import java.util.ArrayList;
 
 public class DataUsers {
     private static ArrayList<Usuario> usuarios = new ArrayList<>();
+    private static ArrayList<Hobbies> hobbies = new ArrayList<>();
 
     public static void addUsuario(Usuario usuario) {
         usuarios.add(usuario);
@@ -18,5 +20,9 @@ public class DataUsers {
         }
 
         return null;
+    }
+
+    public static void addHobby(Hobbies grupohobbies) {
+        hobbies.add(grupohobbies);
     }
 }

@@ -16,6 +16,7 @@ public class main {
             } else if (opcao == 2) {
                 Cadastro.showMenu();
             }
+
         }
     }
 }

@@ -18,9 +18,9 @@ public class Login {
         Usuario user = DataUsers.buscaUsuario(email);
 
         if (user != null && user.getSenha().equals(senha)) {
-            System.out.println("Login com sucesso");
+            System.out.println("Login com sucesso.");
         } else {
-            System.out.println("Falha no login");
+            System.out.println("Falha no login.");
         }
     }
 }
