@@ -3,7 +3,7 @@ import menus.Login;
 
 import java.util.Scanner;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -16,7 +16,6 @@ public class Main {
             } else if (opcao == 2) {
                 Cadastro.showMenu();
             }
-
         }
     }
 }

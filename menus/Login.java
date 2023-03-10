@@ -19,6 +19,7 @@ public class Login {
 
         if (user != null && user.getSenha().equals(senha)) {
             System.out.println("Login com sucesso.");
+            Inicio.showMenu();
         } else {
             System.out.println("Falha no login.");
         }

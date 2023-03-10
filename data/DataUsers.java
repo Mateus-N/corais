@@ -25,4 +25,10 @@ public class DataUsers {
     public static void addHobby(Hobbies grupohobbies) {
         hobbies.add(grupohobbies);
     }
+
+    public static void listarHobbies() {
+        for (int i = 0; i < hobbies.size(); i++) {
+            System.out.println(hobbies.get(i).getNome());
+        }
+    }
 }
