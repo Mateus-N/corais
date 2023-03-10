@@ -2,14 +2,14 @@ package models;
 
 import java.util.Random;
 
-public class Hobbies {
+public class Hobbie {
     // Criação de atributos
     private String nome;
     private int id;
 
     // Construtor de grupos de hobbies, com nome dado pelo
     // usuário e id do hobby gerado automaticamente.
-    public Hobbies(String nome) {
+    public Hobbie(String nome) {
         this.nome = nome;
 
         Random rand = new Random();

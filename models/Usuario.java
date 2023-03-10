@@ -6,12 +6,16 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private ArrayList<Hobbies> hobbies;
+    private Endereco endereco;
+    private Contato contato;
+    private ArrayList<Hobbie> hobbies;
 
-    public Usuario(String nome, String email, String senha) {
+    public Usuario(String nome, String email, String senha, Endereco endereco, Contato contato) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.endereco = endereco;
+        this.contato = contato;
         this.hobbies = new ArrayList<>();
     }
 
@@ -27,11 +31,19 @@ public class Usuario {
         return senha;
     }
 
-    public ArrayList<Hobbies> getHobbies() {
+    public ArrayList<Hobbie> getHobbies() {
         return hobbies;
     }
 
-    public void adicionaHobbie(Hobbies hobbie) {
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public Contato getContato() {
+        return contato;
+    }
+
+    public void adicionaHobbie(Hobbie hobbie) {
         hobbies.add(hobbie);
     }
 }

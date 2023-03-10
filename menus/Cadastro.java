@@ -18,7 +18,7 @@ public class Cadastro {
         System.out.print("Senha: ");
         String senha = input.nextLine();
 
-        Usuario user = new Usuario(nome, email, senha);
+        Usuario user = new Usuario(nome, email, senha, null, null);
         DataUsers.addUsuario(user);
     }
 }

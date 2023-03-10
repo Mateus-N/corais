@@ -1,12 +1,12 @@
 package data;
 
 import models.Usuario;
-import models.Hobbies;
+import models.Hobbie;
 import java.util.ArrayList;
 
 public class DataUsers {
     private static ArrayList<Usuario> usuarios = new ArrayList<>();
-    private static ArrayList<Hobbies> hobbies = new ArrayList<>();
+    private static ArrayList<Hobbie> hobbies = new ArrayList<>();
 
     public static void addUsuario(Usuario usuario) {
         usuarios.add(usuario);
@@ -22,8 +22,8 @@ public class DataUsers {
         return null;
     }
 
-    public static void addHobby(Hobbies grupohobbies) {
-        hobbies.add(grupohobbies);
+    public static void addHobby(Hobbie hobbie) {
+        hobbies.add(hobbie);
     }
 
     public static void listarHobbies() {
