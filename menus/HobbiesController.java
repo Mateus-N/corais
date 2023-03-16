@@ -1,8 +1,6 @@
 package menus;
-
 import data.DataUsers;
 import models.Hobbie;
-
 import java.util.Scanner;
 
 public class HobbiesController {
