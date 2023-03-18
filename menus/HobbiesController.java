@@ -1,4 +1,5 @@
 package menus;
+
 import data.DataUsers;
 import models.Hobbie;
 import java.util.Scanner;
@@ -8,10 +9,14 @@ public class HobbiesController {
 
     public static void showMenu() {
         while (true) {
-            System.out.println("1 - Criar um Hobbie\n2 - Listar Hobbies");
+            // Opções de escolha do usuário.
+            System.out.println("0 - Sair\n1 - Criar um Hobbie\n2 - Listar Hobbies");
             int opcao = Integer.parseInt(input.nextLine());
 
-            if (opcao == 1) {
+            if (opcao == 0) {
+                System.out.println("Saindo da conta...");
+                break;
+            } else if (opcao == 1) {
                 System.out.println("Nome do Hobbie: ");
                 String nomeHobby = input.nextLine();
                 Hobbie Hobby = new Hobbie(nomeHobby);
