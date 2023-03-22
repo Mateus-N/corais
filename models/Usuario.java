@@ -10,6 +10,7 @@ public class Usuario {
     private Endereco endereco;
     private Contato contato;
     private ArrayList<Hobbie> hobbies;
+    private ArrayList<Grupo> grupo;
 
     public Usuario(String nome, String email, String senha, Endereco endereco, Contato contato) {
         this.nome = nome;
@@ -42,6 +43,10 @@ public class Usuario {
 
     public Contato getContato() {
         return contato;
+    }
+
+    public ArrayList<Grupo> getGrupo() {
+        return grupo;
     }
 
     public void adicionaHobbie(Hobbie hobbie) {
