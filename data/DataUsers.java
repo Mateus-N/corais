@@ -1,15 +1,17 @@
 package data;
+
 import models.Hobbie;
 import models.Usuario;
+import models.Grupo;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DataUsers {
     private static ArrayList<Usuario> usuarios = new ArrayList<>();
     private static ArrayList<Hobbie> hobbies = new ArrayList<>();
+    private static ArrayList<Grupo> grupos = new ArrayList<>();
 
     static {
-        String[] defaultNomes = {"Esportes",
+        String[] defaultNomes = { "Esportes",
                 "Música",
                 "Arte",
                 "Viagens",
@@ -23,7 +25,7 @@ public class DataUsers {
                 "Política",
                 "Natureza",
                 "Jogos",
-                "Moda"};
+                "Moda" };
 
         for (String nome : defaultNomes) {
             addHobby(new Hobbie(nome));
@@ -48,6 +50,15 @@ public class DataUsers {
         hobbies.add(hobbie);
     }
 
+    public static void userHobbies(Usuario user) {
+        if (user.getHobbies().size() == 0) {
+            System.out.println("Nenhum hobby foi adicionado.");
+        }
+        for (int i = 0; i < user.getHobbies().size(); i++) {
+            System.out.println(user.getHobbies().get(i).getNome());
+        }
+    }
+
     public static void listarHobbies() {
         for (int i = 0; i < hobbies.size(); i++) {
             System.out.println(hobbies.get(i).getNome());
@@ -66,5 +77,11 @@ public class DataUsers {
             }
         }
         return false;
+    }
+
+    public static void listarGrupos(String email) {
+        for (int i = 0; i < grupos.size(); i++) {
+            System.out.println(grupos.get(i).getNome());
+        }
     }
 }

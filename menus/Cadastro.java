@@ -39,7 +39,7 @@ public class Cadastro {
                 }
             }
         } catch (InputMismatchException e) {
-            System.out.println("Isso não é um hobbie.Tente novamente.");
+            System.out.println("Isso não é um hobbie. Tente novamente.");
         }
 
     }

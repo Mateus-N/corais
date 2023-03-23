@@ -2,7 +2,6 @@ package menus;
 
 import data.DataUsers;
 import models.Usuario;
-
 import java.util.Scanner;
 
 public class Login {
@@ -19,7 +18,7 @@ public class Login {
 
         if (user != null && user.getSenha().equals(senha)) {
             System.out.println("Login com sucesso.");
-            HobbiesController.showMenu();
+            MenuInicial.showMenu(user);
         } else {
             System.out.println("Falha no login.");
         }

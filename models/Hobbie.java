@@ -22,6 +22,7 @@ public class Hobbie {
     public String getNome() {
         return nome;
     }
+
     public int getId() {
         return id;
     }
