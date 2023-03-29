@@ -10,7 +10,7 @@ public class MenuInicial {
     public static void showMenu(Usuario user) {
         while (true) {
             // Opções de escolha do usuário
-            System.out.println("0 - Sair\n1 - Perfil\n2 - Notificações\n3 - Listar grupos\n" +
+            System.out.println("\n0 - Sair\n1 - Perfil\n2 - Notificações\n3 - Listar grupos\n" +
                     "4 - Listar hobbies\n5 - Buscar eventos e grupos\n6 - Criar grupo\n" +
                     "7 - Eventos e grupos em destaque");
 
@@ -28,7 +28,7 @@ public class MenuInicial {
                     System.out.println("Comando desconhecido.");
                 }
             } else if (opcao == 1) {
-                System.out.println("Mostrando perfil:");
+                Perfil.showMenu(user);
             } else if (opcao == 2) {
                 System.out.println("Notificações:");
             } else if (opcao == 3) {

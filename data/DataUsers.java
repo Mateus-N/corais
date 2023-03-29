@@ -84,4 +84,14 @@ public class DataUsers {
             System.out.println(grupos.get(i).getNome());
         }
     }
+
+    public static Hobbie buscarHobbie(String nome) {
+        for (Hobbie hobbie : DataUsers.getHobbies()) {
+            if (nome.equals(hobbie.getNome())) {
+                return hobbie;
+            }
+        }
+
+        return null;
+    }
 }

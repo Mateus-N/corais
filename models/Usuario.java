@@ -20,6 +20,10 @@ public class Usuario {
         this.hobbies = new ArrayList<>();
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getEmail() {
         return email;
     }

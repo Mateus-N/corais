@@ -5,19 +5,21 @@ import java.util.Random;
 
 public class Grupo {
     // Atributos de "Grupo"
-    private String nome, descricao, dono, cidade;
+    private String nome, descricao, cidade;
+    private Usuario dono;
+    private Hobbie hobbieDoGrupo;
     private int id;
     private ArrayList<Usuario> usuario;
     private ArrayList<String> participantes = new ArrayList<>();
 
     // Construtor de grupos, com alguns dos dados
     // sendo informados pelo usuário.
-    public Grupo(String nome, String descricao, String cidade) {
+    public Grupo(String nome, String descricao, String cidade, Usuario user, Hobbie hobbie) {
         this.nome = nome;
         this.descricao = descricao;
         this.cidade = cidade;
-
-        this.dono = usuario.get(0).getNome(); // (Corrigir isso depois)
+        this.dono = user;
+        this.hobbieDoGrupo = hobbie;
 
         Random rand = new Random();
         this.id = rand.nextInt(1000, 9999);
@@ -46,7 +48,7 @@ public class Grupo {
     public String getDescricao() {
         return descricao;
     }
-    public String getDono() {
+    public Usuario getDono() {
         return dono;
     }
     public String getCidade() {

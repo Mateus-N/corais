@@ -1,6 +1,8 @@
 package menus;
 
 import data.DataUsers;
+import models.Contato;
+import models.Endereco;
 import models.Hobbie;
 import models.Usuario;
 
@@ -20,7 +22,7 @@ public class Cadastro {
         System.out.print("Senha: ");
         String senha = input.nextLine();
 
-        Usuario user = new Usuario(nome, email, senha, null, null);
+        Usuario user = new Usuario(nome, email, senha, new Endereco(), new Contato());
         DataUsers.addUsuario(user);
 
         DataUsers.listarHobbies(); // Listar hobbies para escolha do usuário

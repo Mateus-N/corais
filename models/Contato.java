@@ -1,19 +1,19 @@
 package models;
 
 public class Contato {
-    private String email;
-    private String telefone;
-    
-    public Contato(String email, String telefone) {
-        this.email = email;
-        this.telefone = telefone;
-    }
+    private String telefone = "";
 
-    public String getEmail() {
-        return email;
+    public Contato () {}
+
+    public Contato(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

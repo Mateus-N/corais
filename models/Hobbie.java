@@ -7,7 +7,7 @@ public class Hobbie {
     // Atributos de "Hobbie"
     private String nome;
     private int id;
-    private ArrayList<Grupo> grupo;
+    private ArrayList<Grupo> grupos;
 
     // Construtor de hobbies, com nome dado pelo
     // usuário e id do hobby gerado automaticamente.
@@ -25,5 +25,9 @@ public class Hobbie {
 
     public int getId() {
         return id;
+    }
+
+    public void adicionarGrupo(Grupo grupo) {
+        grupos.add(grupo);
     }
 }
