@@ -1,11 +1,10 @@
 package menus;
 
 import models.Usuario;
-
 import java.util.Scanner;
 
 public class EditarPerfil {
-    private  static Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
 
     public static void showMenu(Usuario user) {
         int opcao = -1;
@@ -53,15 +52,14 @@ public class EditarPerfil {
 
         while (opcao < 0 || opcao > 7) {
             System.out.println(
-                "\n0 - Nome" +
-                "\n1 - Logradouro" +
-                "\n2 - Numero ou lote" +
-                "\n3 - Bairro" +
-                "\n4 - Cidade" +
-                "\n5 - UF" +
-                "\n6 - Contato" +
-                "\n7 - Sair"
-            );
+                    "\n0 - Nome" +
+                            "\n1 - Logradouro" +
+                            "\n2 - Numero ou lote" +
+                            "\n3 - Bairro" +
+                            "\n4 - Cidade" +
+                            "\n5 - UF" +
+                            "\n6 - Contato" +
+                            "\n7 - Sair");
 
             opcao = Integer.parseInt(in.nextLine());
 

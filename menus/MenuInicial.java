@@ -16,16 +16,10 @@ public class MenuInicial {
 
             int opcao = Integer.parseInt(input.nextLine());
             if (opcao == 0) {
-                System.out.print("Deseja mesmo sair da conta (s/n)? ");
-                String x = input.nextLine().toUpperCase();
-
-                if (x.equals("S")) {
-                    System.out.println("Saindo da conta...");
+                if (MenuSair.showText()) {
                     break;
-                } else if (x.equals("N")) {
-                    continue;
                 } else {
-                    System.out.println("Comando desconhecido.");
+                    continue;
                 }
             } else if (opcao == 1) {
                 Perfil.showMenu(user);

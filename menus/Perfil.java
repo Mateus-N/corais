@@ -1,11 +1,9 @@
 package menus;
 
 import models.Usuario;
-
 import java.util.Scanner;
 
 public class Perfil {
-
     private static Scanner in = new Scanner(System.in);
 
     public static void showMenu(Usuario user) {
