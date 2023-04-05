@@ -3,7 +3,6 @@ package menus;
 import data.DataUsers;
 import models.Contato;
 import models.Endereco;
-import models.Hobbie;
 import models.Usuario;
 
 import java.util.InputMismatchException;
@@ -27,10 +26,10 @@ public class Cadastro {
 
         DataUsers.listarHobbies(); // Listar hobbies para escolha do usuário
         System.out.println("Escolha seus interesses iniciais ou digite Avançar para prosseguir.");
-        try {
+        try { 
             while (true) {
                 String hobbieEscolhido = input.nextLine();
-                if (hobbieEscolhido.equals("Avançar")) {
+                if (hobbieEscolhido.equals("Avancar")) {
                     break;
                 } else {
                     if (DataUsers.escolherHobbie(hobbieEscolhido, user)) {
