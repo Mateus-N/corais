@@ -5,11 +5,14 @@ import models.Usuario;
 import models.Grupo;
 import java.util.ArrayList;
 
+// simulacao de banco de dados
 public class DataUsers {
+    // tabelas base do banco
     private static ArrayList<Usuario> usuarios = new ArrayList<>();
     private static ArrayList<Hobbie> hobbies = new ArrayList<>();
     private static ArrayList<Grupo> grupos = new ArrayList<>();
 
+    // listar hobbies iniciais
     static {
         String[] defaultNomes = {
             "Esportes",
@@ -34,18 +37,9 @@ public class DataUsers {
         }
     }
 
+    // Adicionar dados as listas
     public static void addUsuario(Usuario usuario) {
         usuarios.add(usuario);
-    }
-
-    public static Usuario buscaUsuario(String email) {
-        for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios.get(i).getEmail().equals(email)) {
-                return usuarios.get(i);
-            }
-        }
-
-        return null;
     }
 
     public static void addHobby(Hobbie hobbie) {
@@ -57,6 +51,7 @@ public class DataUsers {
         return grupo.getId();
     }
 
+    // Operacoes com hobbies
     public static void userHobbies(Usuario user) {
         if (user.getHobbies().size() == 0) {
             System.out.println("Nenhum hobby foi adicionado.");
@@ -66,18 +61,8 @@ public class DataUsers {
         }
     }
 
-    public static void listarHobbies() {
-        for (int i = 0; i < hobbies.size(); i++) {
-            System.out.println(hobbies.get(i).getNome());
-        }
-    }
-
-    public static ArrayList<Hobbie> getHobbies() {
-        return hobbies;
-    }
-
     public static boolean escolherHobbie(String hobbieEscolhido, Usuario user) {
-        for (Hobbie hobbie : DataUsers.getHobbies()) {
+        for (Hobbie hobbie : hobbies) {
             if (hobbieEscolhido.equals(hobbie.getNome())) {
                 user.adicionaHobbie(hobbie);
                 return true;
@@ -86,14 +71,30 @@ public class DataUsers {
         return false;
     }
 
+    // Buscas
     public static Hobbie buscarHobbie(String nome) {
-        for (Hobbie hobbie : DataUsers.getHobbies()) {
+        for (Hobbie hobbie : hobbies) {
             if (nome.equals(hobbie.getNome())) {
                 return hobbie;
             }
         }
-
         return null;
+    }
+
+    public static Usuario buscaUsuario(String email) {
+        for (int i = 0; i < usuarios.size(); i++) {
+            if (usuarios.get(i).getEmail().equals(email)) {
+                return usuarios.get(i);
+            }
+        }
+        return null;
+    }
+
+    // Listar informacoes
+    public static void listarHobbies() {
+        for (int i = 0; i < hobbies.size(); i++) {
+            System.out.println(hobbies.get(i).getNome());
+        }
     }
 
     public static void listarTodosOsGrupos() {

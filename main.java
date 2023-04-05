@@ -3,20 +3,22 @@ import menus.Login;
 import java.util.Scanner;
 
 class Main {
-    public static void main(String[] args) {
-        try (Scanner input = new Scanner(System.in)) {
-            while (true) {
-                System.out.println("1 - Fazer login\n2 - Criar conta");
-                int opcao = Integer.parseInt(input.nextLine());
+    private static Scanner in = new Scanner(System.in);
 
-                if (opcao == 1) {
-                    Login.showMenu();
-                } else if (opcao == 2) {
-                    Cadastro.showMenu();
-                }
+    public static void main(String[] args) {
+        boolean continuar = true;
+        while (continuar) {
+            System.out.println("1 - Fazer login\n2 - Criar conta\n3 - Encerrar sistema");
+            int opcao = Integer.parseInt(in.nextLine());
+
+            if (opcao == 1) {
+                Login.showMenu();
+            } else if (opcao == 2) {
+                Cadastro.showMenu();
+            } else if (opcao == 3) {
+                System.out.println("\nVolte sempre!");
+                continuar = false;
             }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
         }
     }
 }

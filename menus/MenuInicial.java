@@ -8,7 +8,8 @@ public class MenuInicial {
     private static Scanner input = new Scanner(System.in);
 
     public static void showMenu(Usuario user) {
-        while (true) {
+        boolean continuar = true;
+        while (continuar) {
             // Opções de escolha do usuário
             System.out.println("\n0 - Sair\n1 - Perfil\n2 - Notificações\n3 - Listar grupos\n" +
                     "4 - Listar hobbies\n5 - Buscar eventos e grupos\n6 - Criar grupo\n" +
@@ -17,9 +18,7 @@ public class MenuInicial {
             int opcao = Integer.parseInt(input.nextLine());
             if (opcao == 0) {
                 if (MenuSair.showText()) {
-                    break;
-                } else {
-                    continue;
+                    continuar = false;
                 }
             } else if (opcao == 1) {
                 Perfil.showMenu(user);
