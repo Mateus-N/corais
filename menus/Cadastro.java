@@ -25,7 +25,7 @@ public class Cadastro {
         DataUsers.addUsuario(user);
 
         DataUsers.listarHobbies(); // Listar hobbies para escolha do usuário
-        System.out.println("Escolha seus interesses iniciais ou digite Avançar para prosseguir.");
+        System.out.println("Escolha seus interesses iniciais ou digite Avancar para prosseguir.");
         try { 
             while (true) {
                 String hobbieEscolhido = input.nextLine();
@@ -42,6 +42,5 @@ public class Cadastro {
         } catch (InputMismatchException e) {
             System.out.println("Isso não é um hobbie. Tente novamente.");
         }
-
     }
 }

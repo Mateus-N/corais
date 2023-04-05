@@ -11,21 +11,23 @@ public class DataUsers {
     private static ArrayList<Grupo> grupos = new ArrayList<>();
 
     static {
-        String[] defaultNomes = { "Esportes",
-                "Música",
-                "Arte",
-                "Viagens",
-                "Leitura",
-                "Tecnologia",
-                "Cinema",
-                "Fotografia",
-                "Culinária",
-                "História",
-                "Ciência",
-                "Política",
-                "Natureza",
-                "Jogos",
-                "Moda" };
+        String[] defaultNomes = {
+            "Esportes",
+            "Música",
+            "Arte",
+            "Viagens",
+            "Leitura",
+            "Tecnologia",
+            "Cinema",
+            "Fotografia",
+            "Culinária",
+            "História",
+            "Ciência",
+            "Política",
+            "Natureza",
+            "Jogos",
+            "Moda"
+        };
 
         for (String nome : defaultNomes) {
             addHobby(new Hobbie(nome));
@@ -48,6 +50,11 @@ public class DataUsers {
 
     public static void addHobby(Hobbie hobbie) {
         hobbies.add(hobbie);
+    }
+
+    public static int addGrupo(Grupo grupo) {
+        grupos.add(grupo);
+        return grupo.getId();
     }
 
     public static void userHobbies(Usuario user) {
@@ -79,12 +86,6 @@ public class DataUsers {
         return false;
     }
 
-    public static void listarGrupos(String email) {
-        for (int i = 0; i < grupos.size(); i++) {
-            System.out.println(grupos.get(i).getNome());
-        }
-    }
-
     public static Hobbie buscarHobbie(String nome) {
         for (Hobbie hobbie : DataUsers.getHobbies()) {
             if (nome.equals(hobbie.getNome())) {
@@ -93,5 +94,29 @@ public class DataUsers {
         }
 
         return null;
+    }
+
+    public static void listarTodosOsGrupos() {
+        for (int i = 0; i < grupos.size(); i++) {
+            System.out.println(grupos.get(i).getNome());
+        }
+    }
+
+    public static void listarGruposPorHobbie(Hobbie hobbie) {
+        for (Grupo grupo : grupos) {
+            if (grupo.getHobbieDoGrupo().equals(hobbie)) {
+                System.out.println(grupo.getNome());
+            }
+        }
+    }
+
+    public static void listarGrupoPorUsuario(Usuario user) {
+        for (Grupo grupo : grupos) {
+            for (int grupoId : user.getGrupos()) {
+                if (grupo.getId() == grupoId) {
+                    System.out.println(grupo.getNome());
+                }
+            }
+        }
     }
 }

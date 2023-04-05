@@ -27,6 +27,7 @@ public class MenuInicial {
                 System.out.println("Notificações:");
             } else if (opcao == 3) {
                 System.out.println("Grupos que você entrou:");
+                DataUsers.listarGrupoPorUsuario(user);
             } else if (opcao == 4) {
                 System.out.println("Seus hobbies:");
                 DataUsers.userHobbies(user);
@@ -34,6 +35,7 @@ public class MenuInicial {
                 System.out.println("Barra de pesquisa:");
             } else if (opcao == 6) {
                 System.out.println("Criação de grupo:");
+                CriarGrupo.showMenu(user);
             } else if (opcao == 7) {
                 System.out.println("Eventos e grupos em destaque:");
             } else {
