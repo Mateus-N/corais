@@ -8,15 +8,15 @@ public class MenuInicial {
     private static Scanner input = new Scanner(System.in);
 
     public static void showMenu(Usuario user) {
-        boolean continuar = true;
-        while (continuar) {
+        while (true) {
             // Opções de escolha do usuário
             listarOpcoes();
             try {
                 int opcao = Integer.parseInt(input.nextLine());
                 if (opcao == 0) {
-                    if (MenuSair.showText()) {
-                        continuar = false;
+                    boolean sair = MenuSair.showText();
+                    if (sair) {
+                        break;
                     }
                 } else if (opcao == 1) {
                     Perfil.showMenu(user);
