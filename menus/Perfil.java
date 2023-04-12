@@ -25,13 +25,17 @@ public class Perfil {
 
         int opcao = 0;
         while (opcao != 1) {
-            opcao = Integer.parseInt(in.nextLine());
+            try {
+                opcao = Integer.parseInt(in.nextLine());
 
-            if (opcao == 0) {
-                EditarPerfil.showMenu(user);
-            } else if (opcao == 1) {
-                MenuInicial.showMenu(user);
-            } else {
+                if (opcao == 0) {
+                    EditarPerfil.showMenu(user);
+                } else if (opcao == 1) {
+                    MenuInicial.showMenu(user);
+                } else {
+                    System.out.println("Escolha uma opção válida");
+                }
+            } catch (Exception e) {
                 System.out.println("Escolha uma opção válida");
             }
         }
