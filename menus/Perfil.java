@@ -1,11 +1,9 @@
 package menus;
 
 import models.Usuario;
-import java.util.Scanner;
 
+// exibe informacoes do usuario e da acesso ao menu de edicao
 public class Perfil {
-    private static Scanner in = new Scanner(System.in);
-
     public static void showMenu(Usuario user) {
         System.out.println("Informações de perfil:");
 
@@ -21,23 +19,14 @@ public class Perfil {
 
         System.out.println("\nContato: " + user.getContato().getTelefone());
 
-        System.out.println("\n0 - Editar perfil\n1 - Voltar ao menu");
-
-        int opcao = 0;
-        while (opcao != 1) {
-            try {
-                opcao = Integer.parseInt(in.nextLine());
-
-                if (opcao == 0) {
-                    EditarPerfil.showMenu(user);
-                } else if (opcao == 1) {
-                    MenuInicial.showMenu(user);
-                } else {
-                    System.out.println("Escolha uma opção válida");
-                }
-            } catch (Exception e) {
-                System.out.println("Escolha uma opção válida");
-            }
+        // pergunta de deseja editar o perfil
+        boolean editarPerfil = MenuDuasOpcoes.pergunta("Editar perfil?");
+        if (editarPerfil) {
+            // caso sim vai para o menu de edicao
+            EditarPerfil.showMenu(user);
+            // apos sair do menu de edicao volta para o perfil com a recursividade abaixo
+            // recursividade para exibir esse menu novamente
+            showMenu(user);
         }
     }
 }

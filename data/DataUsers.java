@@ -4,17 +4,18 @@ import models.Hobbie;
 import models.Usuario;
 import models.Grupo;
 import java.util.ArrayList;
+import java.util.List;
 
 // simulacao de banco de dados
 public class DataUsers {
     // tabelas base do banco
-    private static ArrayList<Usuario> usuarios = new ArrayList<>();
-    private static ArrayList<Hobbie> hobbies = new ArrayList<>();
-    private static ArrayList<Grupo> grupos = new ArrayList<>();
+    private static List<Usuario> usuarios = new ArrayList<Usuario>();
+    private static List<Hobbie> hobbies = new ArrayList<Hobbie>();
+    private static List<Grupo> grupos = new ArrayList<Grupo>();
 
-    // listar hobbies iniciais
+    // hobbies iniciais
     static {
-        String[] defaultNomes = {
+        String[] defaultHobbies = {
             "Esportes",
             "Música",
             "Arte",
@@ -32,7 +33,8 @@ public class DataUsers {
             "Moda"
         };
 
-        for (String nome : defaultNomes) {
+        // Criar hobbies iniciais
+        for (String nome : defaultHobbies) {
             addHobby(new Hobbie(nome));
         }
     }
@@ -71,6 +73,12 @@ public class DataUsers {
         return false;
     }
 
+    // Operacoes com grupos
+    public static void entrarEmGrupo(Grupo grupo, Usuario user) {
+        grupo.adicionaParticipante(user);
+        user.adicionarGrupo(grupo.getId());
+    }
+
     // Buscas
     public static Hobbie buscarHobbie(String nome) {
         for (Hobbie hobbie : hobbies) {
@@ -88,6 +96,16 @@ public class DataUsers {
             }
         }
         return null;
+    }
+
+    public static List<Grupo> buscaGrupos(String pesquisa) {
+        List<Grupo> gruposEncontrados = new ArrayList<Grupo>();
+        for (Grupo grupo : grupos) {
+            if (grupo.getNome().toLowerCase().contains(pesquisa.toLowerCase())) {
+                gruposEncontrados.add(grupo);
+            }
+        }
+        return gruposEncontrados;
     }
 
     // Listar informacoes

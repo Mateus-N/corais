@@ -4,14 +4,15 @@ import data.DataUsers;
 import models.Contato;
 import models.Endereco;
 import models.Usuario;
-
-import java.util.InputMismatchException;
+import utils.UtilitariosHobbies;
 import java.util.Scanner;
 
+// Classe para efetuar cadastro do usuário
 public class Cadastro {
     private static Scanner input = new Scanner(System.in);
 
     public static void showMenu() {
+        // Receber dados obrigatorios
         System.out.print("Nome: ");
         String nome = input.nextLine();
 
@@ -21,20 +22,28 @@ public class Cadastro {
         System.out.print("Senha: ");
         String senha = input.nextLine();
 
+        // Instancia usuario vazio
         Usuario user;
-        boolean querCadastroCompleto = perguntaCadastroCompleto();
+        // Verifica se quer cadastrar dados opcionais
+        boolean querCadastroCompleto = MenuDuasOpcoes.pergunta("Deseja efetuar o cadastro completo?");
         if (querCadastroCompleto) {
+            // Caso queira chama os metodos para preencher endereco e contato
             Endereco endereco = cadastroEndereco();
             Contato contato = cadastroContato();
+            // o usuario e criado com todos os dados preenchidos
             user = new Usuario(nome, email, senha, endereco, contato);
         } else {
+            // O usuario e criado com dados obrigatorios e restante vazio
             user = new Usuario(nome, email, senha, new Endereco(), new Contato());
         }
 
+        // usuario e adicionado ao banco
         DataUsers.addUsuario(user);
-        escolherHobbies(user);
+        // escolha de hobbies iniciais
+        UtilitariosHobbies.escolherHobbies(user);
     }
 
+    // Receber dados de contato
     private static Contato cadastroContato() {
         System.out.print("Telefone: ");
         String telefone = input.nextLine();
@@ -43,6 +52,7 @@ public class Cadastro {
         return contato;
     }
 
+    // Receber dados de endereco
     private static Endereco cadastroEndereco() {
         System.out.print("Logradouro: ");
         String logradouro = input.nextLine();
@@ -61,44 +71,5 @@ public class Cadastro {
 
         Endereco endereco = new Endereco(logradouro, numeroOuLote, bairro, cidade, uf);
         return endereco;
-    }
-
-    private static boolean perguntaCadastroCompleto() {
-        while (true) {
-            System.out.println("\nDeseja efetuar o cadastro completo? 1 - Sim / 2 - Não");
-            try {
-                int opcao = Integer.parseInt(input.nextLine());
-                if (opcao == 1) {
-                    return true;
-                } else if (opcao == 2) {
-                    return false;
-                } else {
-                    System.out.println("\nEscolha uma opção válida");
-                }
-            } catch (Exception e) {
-                System.out.println("\nEscolha uma opção válida");
-            }
-        }
-    }
-
-    private static void escolherHobbies(Usuario user) {
-        DataUsers.listarHobbies(); // Listar hobbies para escolha do usuário
-        System.out.println("Escolha seus interesses iniciais ou digite Avancar para prosseguir.");
-        try { 
-            while (true) {
-                String hobbieEscolhido = input.nextLine();
-                if (hobbieEscolhido.equals("Avancar")) {
-                    break;
-                } else {
-                    if (DataUsers.escolherHobbie(hobbieEscolhido, user)) {
-                        System.out.println("Hobbie adicionado.");
-                    } else {
-                        System.out.println("Ops! Esse hobbie não existe. Tente novamente.");
-                    }
-                }
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Isso não é um hobbie. Tente novamente.");
-        }
     }
 }
