@@ -74,9 +74,14 @@ public class DataUsers {
     }
 
     // Operacoes com grupos
-    public static void entrarEmGrupo(Grupo grupo, Usuario user) {
-        grupo.adicionaParticipante(user);
-        user.adicionarGrupo(grupo.getId());
+    public static boolean entrarEmGrupo(Grupo grupo, Usuario user) {
+        // verifica se esse grupo já está na lista de grupos do usuário
+        if (!user.getGrupos().contains(grupo.getId())) {
+            grupo.adicionaParticipante(user);
+            user.adicionarGrupo(grupo.getId());
+            return true;
+        }
+        return false;
     }
 
     // Buscas
@@ -106,6 +111,26 @@ public class DataUsers {
             }
         }
         return gruposEncontrados;
+    }
+
+    public static boolean verificaEmailUnico(String email) {
+        boolean emailJaExiste = false;
+        for (Usuario user : usuarios) {
+            if (user.getEmail().toLowerCase().equals(email.toLowerCase())) {
+                emailJaExiste = true;
+            }
+        }
+        return emailJaExiste;
+    }
+
+    public static boolean verificaNomeDeGrupoUnico(String nome) {
+        boolean grupoJaExiste = false;
+        for (Grupo user : grupos) {
+            if (user.getNome().toLowerCase().equals(nome.toLowerCase())) {
+                grupoJaExiste = true;
+            }
+        }
+        return grupoJaExiste;
     }
 
     // Listar informacoes

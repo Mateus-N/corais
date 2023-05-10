@@ -31,8 +31,7 @@ public class CriarGrupo {
         }
 
         // preenchimento de informacoes do grupo
-        System.out.print("\nNome do grupo: ");
-        String nome = in.nextLine();
+        String nome = recebeNomeUnico();
 
         System.out.print("\nCidade: ");
         String cidade = in.nextLine();
@@ -48,5 +47,16 @@ public class CriarGrupo {
         user.adicionarGrupo(grupoId);
 
         System.out.println("\nGrupo adicionado com sucesso!");
+    }
+
+    private static String recebeNomeUnico() {
+        System.out.print("\nNome do grupo: ");
+        String nome = in.nextLine();
+        boolean grupoJaExiste = DataUsers.verificaNomeDeGrupoUnico(nome);
+        if (!grupoJaExiste) {
+            return nome;
+        }
+        System.out.println("Já existe um grupo cadastrado com esse nome! escolha outro por favor");
+        return recebeNomeUnico();
     }
 }

@@ -36,13 +36,26 @@ public class Pesquisa {
         // busca do grupo
         System.out.print("Nome do grupo que deseja entra: ");
         String grupoAIngressar = in.nextLine();
-        
+        boolean grupoDigitadoExiste = false;
+
         // adiciona o usuario ao grupo
         for (Grupo grupo : gruposEncontrados) {
             if (grupo.getNome().toLowerCase().equals(grupoAIngressar.toLowerCase())) {
-                DataUsers.entrarEmGrupo(grupo, user);
+                grupoDigitadoExiste = true;
+                // a funcao retorna true para sucesso e false caso o usuario ja esteja nesse grupo
+                Boolean entrouNoGrupo = DataUsers.entrarEmGrupo(grupo, user);
+                if (entrouNoGrupo) {
+                    System.out.println("Você entrou no grupo " + grupo.getNome() + " com sucesso!");
+                } else {
+                    System.out.println("Você já faz parte desse grupo");
+                }
                 break;
             }
         }
+
+        if (!grupoDigitadoExiste) {
+            System.out.println("O grupo digitado não existe");
+        }
+        showMenu(user);
     }
 }

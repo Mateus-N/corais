@@ -16,8 +16,7 @@ public class Cadastro {
         System.out.print("Nome: ");
         String nome = input.nextLine();
 
-        System.out.print("Email: ");
-        String email = input.nextLine();
+        String email = recebeEmailUnico();
 
         System.out.print("Senha: ");
         String senha = input.nextLine();
@@ -43,6 +42,17 @@ public class Cadastro {
         UtilitariosHobbies.escolherHobbies(user);
     }
 
+    private static String recebeEmailUnico() {
+        System.out.print("Email: ");
+        String email = input.nextLine();
+        boolean emailJaExiste = DataUsers.verificaEmailUnico(email);
+        if (!emailJaExiste) {
+            return email;
+        }
+        System.out.println("Já existe um usuário cadastrado com esse email! escolha outro por favor");
+        return recebeEmailUnico();
+    }
+
     // Receber dados de contato
     private static Contato cadastroContato() {
         System.out.print("Telefone: ");
@@ -54,22 +64,13 @@ public class Cadastro {
 
     // Receber dados de endereco
     private static Endereco cadastroEndereco() {
-        System.out.print("Logradouro: ");
-        String logradouro = input.nextLine();
-
-        System.out.print("Numero ou Lote: ");
-        String numeroOuLote = input.nextLine();
-
-        System.out.print("Bairro: ");
-        String bairro = input.nextLine();
-
         System.out.print("Cidade: ");
         String cidade = input.nextLine();
 
         System.out.print("UF: ");
         String uf = input.nextLine();
 
-        Endereco endereco = new Endereco(logradouro, numeroOuLote, bairro, cidade, uf);
+        Endereco endereco = new Endereco(cidade, uf);
         return endereco;
     }
 }

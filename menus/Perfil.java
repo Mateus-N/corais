@@ -11,9 +11,6 @@ public class Perfil {
         System.out.println("Email: " + user.getEmail());
 
         System.out.println("\nEndereço:");
-        System.out.println("Logradouro: " + user.getEndereco().getLogradouro());
-        System.out.println("Número ou lote: " + user.getEndereco().getNumeroOuLote());
-        System.out.println("Bairro: " + user.getEndereco().getBairro());
         System.out.println("Cidade: " + user.getEndereco().getCidade());
         System.out.println("UF: " + user.getEndereco().getUf());
 

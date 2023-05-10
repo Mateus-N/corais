@@ -43,12 +43,18 @@ public class ListarHobbies {
     private static void removerHobbie(Usuario user) {
         System.out.print("Qual hobbie deseja remover: ");
         String hobbieARemover = in.nextLine();
+        boolean hobbieEstavaNalista = false;
 
         for (Hobbie hobbie : user.getHobbies()) {
             if (hobbie.getNome().toLowerCase().equals(hobbieARemover.toLowerCase())) {
+                hobbieEstavaNalista = true;
                 user.getHobbies().remove(hobbie);
                 break;
             }
+        }
+
+        if (!hobbieEstavaNalista) {
+            System.out.println("O hobbie não estava na sua lista!");
         }
     }
 }
