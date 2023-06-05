@@ -32,8 +32,9 @@ public class DataUsers {
             "Jogos",
             "Moda"
         };
-
-        // Criar hobbies iniciais
+        
+        
+    // Criar primeiros hobbies
         for (String nome : defaultHobbies) {
             addHobby(new Hobbie(nome));
         }
@@ -53,7 +54,7 @@ public class DataUsers {
         return grupo.getId();
     }
 
-    // Operacoes com hobbies
+    // Realizar operacoes com hobbies
     public static void userHobbies(Usuario user) {
         if (user.getHobbies().size() == 0) {
             System.out.println("Nenhum hobby foi adicionado.");
@@ -133,7 +134,7 @@ public class DataUsers {
         return grupoJaExiste;
     }
 
-    // Listar informacoes
+    // Listar dados
     public static void listarHobbies() {
         for (int i = 0; i < hobbies.size(); i++) {
             System.out.println(hobbies.get(i).getNome());
