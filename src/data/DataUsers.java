@@ -38,22 +38,6 @@ public class DataUsers {
         for (String nome : defaultHobbies) {
             addHobby(new Hobbie(nome));
         }
-
-        addUsuario(
-            new Usuario("Mateus", "mateus@email.com", "123", null, null)
-        );
-        addUsuario(
-            new Usuario("adrielly", "adrielly@email.com", "123", null, null)
-        );
-        addUsuario(
-            new Usuario("bruno", "bruno@email.com", "123", null, null)
-        );
-        addUsuario(
-            new Usuario("kelvin", "kelvin@email.com", "123", null, null)
-        );
-        addUsuario(
-            new Usuario("samuel", "samuel@email.com", "123", null, null)
-        );
     }
 
     // Adicionar dados as listas
